@@ -1,5 +1,5 @@
 # Conway-s-Game-of-Life
 Conway's Game of Life, also known as Game of Life or simply Life, is a cellular automata devised by the British mathematician John H. Conway in 1970. Importance of Life to the fields of Computer Science and Mathematics can not be understated. It's a programmers' classic that has been programmed to legendary status with it's countless iterations, implementations, variences etc. Conway's Game of Life represents a beginners gateway into the complex topic of Cellular Automata in Automata Theory.
-# Implenetation in the C programming language
+# Implementation in the C programming language
 Since the C programming language does not have a graphics library pre-installed with it, it is up to the programmer's imagination to visualize something so inherently visually marvellous, life itself.
 Most of the implementations in C (almost all) are done using 2D arrays. What I have done here with this mini-project, is to demonstrate uses of other data structures, such as linked list (in this case a doubly linked list), to simulate the Game of Life.

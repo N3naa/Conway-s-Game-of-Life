@@ -114,11 +114,11 @@ int NextGeneration(Position cell)
 
 	while(current != NULL)
 	{
-		int live_neighbor_cells = CountLiveNeighbors(cell,current->x,current->y);
+		int live_neighbor_cells = CountLiveNeighbors(cell,(current->x + WIDHT) % WIDHT, (current->y + HEIGHT) % HEIGHT);
 
 		if((live_neighbor_cells == 2 || live_neighbor_cells == 3))
 		{
-			LexicalOrder(new_cells,current->x,current->y);
+			LexicalOrder(new_cells,(current->x + WIDHT) % WIDHT, (current->y + HEIGHT) % HEIGHT);
 		}
 
 		for(int dy = -1; dy <= 1; dy++)
@@ -130,9 +130,9 @@ int NextGeneration(Position cell)
 					continue;
 				}
 
-				if(!IsCellAlive(cell, current->x + dx, current->y + dy) && CountLiveNeighbors(cell, current->x + dx, current->y + dy) == 3)
+				if(!IsCellAlive(cell, (current->x + dx + WIDHT) % WIDHT, (current->y + dy + HEIGHT) % HEIGHT) && CountLiveNeighbors(cell, (current->x + dx + WIDHT) % WIDHT, (current->y + dy + HEIGHT) % HEIGHT) == 3)
 				{
-					LexicalOrder(temp_cell, current->x + dx, current->y + dy);
+					LexicalOrder(temp_cell, (current->x + dx + WIDHT) % WIDHT, (current->y + dy + HEIGHT) % HEIGHT);
 				}
 			}
 		}
@@ -152,7 +152,7 @@ int NextGeneration(Position cell)
 
 	DeleteCells(cell);
 	cell->next = new_cells->next;
-	cell->next->prev = cell;
+	if(cell->next != NULL) cell->next->prev = cell;
 	free(new_cells);
 	free(temp_cell);
 

@@ -4,6 +4,8 @@
 #ifndef CELL_H
 #define CELL_H
 
+#include <stdlib.h>
+
 /*typedef enum 
 {
        	DEAD,
@@ -22,7 +24,9 @@ struct Cell
 	Position prev;	
 };
 
-int CreateCell(Position head_cell, int x, int y);
+Position CreateCell(int x, int y);
+
+int InsertCell(Position cell, int x, int y);
 
 int LexicalOrder(Position cell, int x, int y);
 

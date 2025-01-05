@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
 	
 	InputCoordinates(&Head,argv[1]);
 	InitilizeGrid(&Head);
-   	 usleep(SPEED*1000);
-    	system("clear");
+    usleep(SPEED*1000);
+    system("clear");
 
 	while(PrintGrid(&Head))
 	{
